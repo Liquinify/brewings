@@ -1,0 +1,33 @@
+.details-container {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 15rem;
+  left: 40rem;
+}
+
+.details-img {
+  position: absolute;
+  width: 10rem;
+  top: 10rem;
+  left: 15rem;
+}
+
+.details-description {
+  display: flex;
+  padding-top: 2rem;
+  width: 60%;
+}
+
+.details-paired {
+  padding-top: 1rem;
+}
+
+.details-tips {
+  padding-top: 1rem;
+  width: 60%;
+}

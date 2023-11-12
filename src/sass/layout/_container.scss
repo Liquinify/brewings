@@ -1,0 +1,34 @@
+.container {
+  display: inline-flex;
+  margin-inline: 4rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.item {
+  width: 15rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-selected {
+  width: 15rem;
+  border: 3px solid red;
+  border-radius: 10px;
+}
+
+.img {
+  margin-top: 1rem;
+  margin-left: 25%;
+  height: 20rem;
+  width: 7rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 1rem;
+  padding-top: 2rem;
+  margin-bottom: 0.7rem;
+  color: black;
+}

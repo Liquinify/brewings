@@ -1,6 +1,6 @@
-export interface Recipe {
-    id: number
-    name: string
-    image_url: string,
-    tagline: string
-}
+export type Recipe = {
+  id: number;
+  name: string;
+  image_url: string;
+  tagline: string;
+};
