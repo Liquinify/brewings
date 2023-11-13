@@ -2,9 +2,10 @@ import { useEffect } from "react";
 import { useRecipeStore } from "../store/store";
 import { useNavigate, useParams } from "react-router-dom";
 import Details from "../pages/Details";
+import { Recipe } from "../models/Recipe";
 
 const DetailsList = () => {
-  const recipe = useRecipeStore((state) => state.recipe);
+  const recipe: Recipe[] = useRecipeStore((state) => state.recipe);
   const fetchRecipeById = useRecipeStore((state) => state.fetchRecipeById);
   const { id } = useParams();
   const navigate = useNavigate();
@@ -13,19 +14,19 @@ const DetailsList = () => {
     fetchRecipeById(id);
   }, [id]);
 
-  function handleBack() {
+  const handleBack = () => {
     navigate(-1);
-  }
+  };
 
   return (
-    <div>
+    <>
       <button className="back-btn" onClick={handleBack}>
         Back
       </button>
       {recipe.map((recipe) => (
         <Details recipe={recipe} key={recipe.id} />
       ))}
-    </div>
+    </>
   );
 };
 

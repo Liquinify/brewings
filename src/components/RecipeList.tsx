@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecipeStore } from "../store/store";
 import { Link } from "react-router-dom";
 import { Recipe } from "../models/Recipe";
@@ -11,10 +11,10 @@ const RecipeList = () => {
   const {
     fetchRecipes,
     addPage,
-    deleteSelectedRecipes,
     updateSelectedRecipes,
     selectedRecipes,
     recipes,
+    searchValue,
   } = useRecipeStore((state) => state);
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const RecipeList = () => {
             })
             .catch(() => {
               setIsLoading(false);
-              console.log("error while loading data from api");
+              console.log("Error while loading data");
             });
         } else {
           setRange((prevRange) => [prevRange[0] + 5, prevRange[1] + 5]);
@@ -70,16 +70,6 @@ const RecipeList = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [range, recipes, addPage, fetchRecipes]);
-
-  const handleDeleteSelected = async () => {
-    setIsLoading(true);
-    try {
-      await deleteSelectedRecipes();
-    } catch (e) {
-      console.log(e);
-    }
-    setIsLoading(false);
-  };
 
   const handleAddToSelected = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -97,16 +87,19 @@ const RecipeList = () => {
     }
   };
 
+  const filteredRecipes =
+    searchValue === ""
+      ? recipes.slice(range[0], range[1])
+      : recipes
+          .filter((recipe) =>
+            recipe.name.toLowerCase().includes(searchValue.toLowerCase())
+          )
+          .slice(range[0], range[1]);
+
   return (
     <>
-      {selectedRecipes.length && (
-        <button className="delete-btn" onClick={handleDeleteSelected}>
-          Delete
-        </button>
-      )}
-      <br />
       {isLoading && <Loader />}
-      {recipes.slice(range[0], range[1]).map((recipe: Recipe) => (
+      {filteredRecipes.map((recipe: Recipe) => (
         <Link to={`/beer/${recipe.id}`} key={recipe.id}>
           <span
             onContextMenu={(

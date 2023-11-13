@@ -7,11 +7,13 @@ export type StoreState = {
   recipes: Recipe[];
   selectedRecipes: Recipe[];
   currentPage: number;
+  searchValue: string;
   fetchRecipes: () => Promise<void>;
   fetchRecipeById: (id: string | undefined) => Promise<void>;
   deleteSelectedRecipes: () => Promise<void>;
   addPage: () => void;
   updateSelectedRecipes: (recipes: Recipe[]) => void;
+  setSearchValue: (recipes: Recipe[]) => void;
 };
 
 const MIN_PER_RENDER = 15;
@@ -21,6 +23,7 @@ export const useRecipeStore = create<StoreState>((set, getState) => ({
   recipe: [],
   selectedRecipes: [],
   currentPage: 1,
+  searchValue: "",
   fetchRecipes: async () => {
     try {
       const { currentPage } = getState();
@@ -61,5 +64,8 @@ export const useRecipeStore = create<StoreState>((set, getState) => ({
     } else {
       set({ recipes: filteredRecipes });
     }
+  },
+  setSearchValue: (searchValue) => {
+    set({ searchValue });
   },
 }));

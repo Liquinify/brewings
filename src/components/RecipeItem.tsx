@@ -8,10 +8,18 @@ const RecipeItem = ({ recipe }: { recipe: Recipe }) => {
   return (
     <div className="container">
       <div
-        className={selectedRecipes.includes(recipe) ? "item-selected" : "item"}
+        className={
+          selectedRecipes.includes(recipe)
+            ? "container__item-selected"
+            : "container__item"
+        }
       >
-        <img className="img" src={recipe.image_url} alt="recipe img" />
-        <h1 className="title">{recipe.name}</h1>
+        <img
+          className="container__img"
+          src={recipe.image_url}
+          alt="recipe img"
+        />
+        <h1 className="container__title">{recipe.name}</h1>
       </div>
     </div>
   );
