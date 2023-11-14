@@ -23,8 +23,8 @@ const DetailsList = () => {
       <button className="back-btn" onClick={handleBack}>
         Back
       </button>
-      {recipe.map((recipe) => (
-        <Details recipe={recipe} key={recipe.id} />
+      {recipe.map((recipe, idx: number) => (
+        <Details recipe={recipe} key={idx} />
       ))}
     </>
   );

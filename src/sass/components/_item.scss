@@ -1,8 +1,5 @@
 .container {
-  display: inline-flex;
-  margin-inline: 4rem;
-  justify-content: center;
-  align-items: center;
+  display: grid;
   margin-top: 3rem;
 
   &__img {
@@ -15,7 +12,7 @@
   &__title {
     text-align: center;
     font-size: 1rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
     margin-bottom: 0.7rem;
     color: black;
   }

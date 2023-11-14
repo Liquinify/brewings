@@ -13,7 +13,7 @@ export type StoreState = {
   deleteSelectedRecipes: () => Promise<void>;
   addPage: () => void;
   updateSelectedRecipes: (recipes: Recipe[]) => void;
-  setSearchValue: (recipes: Recipe[]) => void;
+  setSearchValue: (searchValue: string) => void;
 };
 
 const MIN_PER_RENDER = 15;
@@ -65,7 +65,7 @@ export const useRecipeStore = create<StoreState>((set, getState) => ({
       set({ recipes: filteredRecipes });
     }
   },
-  setSearchValue: (searchValue) => {
+  setSearchValue: (searchValue: string) => {
     set({ searchValue });
   },
 }));

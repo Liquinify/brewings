@@ -99,17 +99,19 @@ const RecipeList = () => {
   return (
     <>
       {isLoading && <Loader />}
-      {filteredRecipes.map((recipe: Recipe) => (
-        <Link to={`/beer/${recipe.id}`} key={recipe.id}>
-          <span
-            onContextMenu={(
-              event: React.MouseEvent<HTMLDivElement, MouseEvent>
-            ) => handleAddToSelected(event, recipe)}
-          >
-            <RecipeItem recipe={recipe} />
-          </span>
-        </Link>
-      ))}
+      <div className="grid">
+        {filteredRecipes.map((recipe: Recipe) => (
+          <Link to={`/beer/${recipe.id}`} key={recipe.id}>
+            <span
+              onContextMenu={(
+                event: React.MouseEvent<HTMLDivElement, MouseEvent>
+              ) => handleAddToSelected(event, recipe)}
+            >
+              <RecipeItem recipe={recipe} />
+            </span>
+          </Link>
+        ))}
+      </div>
     </>
   );
 };
