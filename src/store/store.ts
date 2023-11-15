@@ -3,7 +3,7 @@ import { Recipe } from "../models/Recipe";
 import { Detail } from "../models/Detail";
 
 export type StoreState = {
-  recipe: Recipe[];
+  recipe: Detail[];
   recipes: Recipe[];
   selectedRecipes: Recipe[];
   currentPage: number;

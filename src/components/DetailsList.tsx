@@ -2,11 +2,10 @@ import { useEffect } from "react";
 import { useRecipeStore } from "../store/store";
 import { useNavigate, useParams } from "react-router-dom";
 import Details from "../pages/Details";
-import { Recipe } from "../models/Recipe";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 
 const DetailsList = () => {
-  const recipe: Recipe[] = useRecipeStore((state) => state.recipe);
+  const recipe = useRecipeStore((state) => state.recipe);
   const fetchRecipeById = useRecipeStore((state) => state.fetchRecipeById);
   const { id } = useParams();
   const navigate = useNavigate();
