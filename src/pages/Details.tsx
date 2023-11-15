@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Detail } from "../models/Detail";
 
 const Details = ({ recipe }: { recipe: Detail }) => {
   return (
-    <div className="details-container">
-      <img className="details-img" src={recipe.image_url} alt="" />
-      <div className="content">
-        <h1>{recipe.name}</h1>
-        <p className="details-description">{recipe.description}</p>
-        <p className="details-paired">
-          Good paired with: {recipe.food_pairing.join(", ")}
-        </p>
-        <p className="details-tips">Brewers tips: {recipe.brewers_tips}</p>
-      </div>
+    <div className="details">
+      <img
+        src={recipe.image_url}
+        alt={recipe.name}
+        className="details__image"
+      />
+      <p className="details__title">{recipe.name}</p>
+      <p className="details__abv">ABV {recipe.abv}%</p>
+      <p className="details__description">{recipe.description}</p>
+      <p className="details__text">Tagline: {recipe.tagline}</p>
+      <p className="details__text">First Brewed: {recipe.first_brewed}</p>
+      <p className="details__list">
+        Goes good with:
+        {recipe.food_pairing.map((food, idx) => (
+          <span key={idx} className="details__item">
+            {food}
+          </span>
+        ))}
+      </p>
     </div>
   );
 };

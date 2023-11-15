@@ -20,4 +20,22 @@
   margin-top: 2rem;
   width: 10rem;
   height: 3rem;
+  border: 1px solid lightgray;
+  background: none;
+  position: relative;
+  padding-left: 0.5rem;
+  border-radius: 5px;
+
+  &__icon {
+    position: absolute;
+    left: 30%;
+  }
+}
+
+.back-btn:hover {
+  cursor: pointer;
+}
+
+.back-btn:active {
+  background: lightcyan;
 }
