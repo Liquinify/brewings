@@ -20,16 +20,20 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  &__text {
+    font-size: 1rem;
+  }
 }
 
 .gap {
   gap: 3rem;
 }
 
-@media (min-width: 480px) {
+@media (max-width: 470px) {
   .header {
     &__text {
-      font-size: 1vw;
+      display: none;
     }
   }
 }

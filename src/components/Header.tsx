@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Search from "./Search";
 import { useRecipeStore } from "../store/store";
+import Loader from "./Loader";
 
 const Header = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -20,22 +21,25 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
-      <div className="header__content">
-        <h2 className="header__logo">Brewings</h2>
-        <div className="header__flex gap">
+    <>
+      {isLoading && <Loader />}
+      <header className="header">
+        <div className="header__content">
+          <h2 className="header__logo">Brewings</h2>
           <div className="header__flex gap">
-            <p className="header__text">Selected: {selectedRecipes.length}</p>
-            {!selectedRecipes.length ? null : (
-              <button className="delete-btn" onClick={handleDeleteSelected}>
-                Delete
-              </button>
-            )}
+            <div className="header__flex gap">
+              <p className="header__text">Selected: {selectedRecipes.length}</p>
+              {!selectedRecipes.length ? null : (
+                <button className="delete-btn" onClick={handleDeleteSelected}>
+                  Delete
+                </button>
+              )}
+            </div>
+            <Search />
           </div>
-          <Search />
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
 

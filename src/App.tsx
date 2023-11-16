@@ -1,8 +1,8 @@
 import React from "react";
-import "./sass/main.scss";
 import { Route, Routes } from "react-router-dom";
 import DetailsList from "./components/DetailsList";
-import Main from "./pages/Main";
+import "./sass/main.scss";
+import Home from "./pages/Home";
 import Header from "./components/Header";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Home />} />
         <Route path="/beer/:id" element={<DetailsList />} />
       </Routes>
     </>

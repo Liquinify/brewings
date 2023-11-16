@@ -1,7 +1,7 @@
 import React from "react";
 import RecipeList from "../components/RecipeList";
 
-const Main = () => {
+const Home = () => {
   return (
     <>
       <RecipeList />
@@ -9,4 +9,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Home;

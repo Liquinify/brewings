@@ -1,8 +1,9 @@
 .details {
   display: flex;
   flex-direction: column;
-  width: 30rem;
+  width: 90%;
   height: 100%;
+  max-width: 30rem;
   margin: 2rem auto;
   box-shadow: 0 4px 8px #0000001a;
   padding-bottom: 1.5rem;

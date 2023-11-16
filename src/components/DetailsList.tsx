@@ -24,8 +24,8 @@ const DetailsList = () => {
         <HiOutlineArrowNarrowLeft className="back-btn__icon" />
         Back
       </button>
-      {recipe.map((recipe, idx: number) => (
-        <Details recipe={recipe} key={idx} />
+      {recipe.map((recipe) => (
+        <Details recipe={recipe} key={recipe.id} />
       ))}
     </>
   );
