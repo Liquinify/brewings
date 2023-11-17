@@ -1,4 +1,3 @@
-import React from "react";
 import { Detail } from "../models/Detail";
 
 const Details = ({ recipe }: { recipe: Detail }) => {
