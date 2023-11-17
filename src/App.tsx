@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import DetailsList from "./components/DetailsList";
 import "./sass/main.scss";
